@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import { FaStar, FaCar } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
+import CarComponent from './components/CarComponent';
 
 function App() {
 
   const [count, setCount] = useState(0);
   const [bar, setBar] = useState(30);
-  const [colorCar, setColorCar] = useState("black");
   const [star, setStar] = useState(0);
   const [r, setR] = useState(255);
   const [g, setG] = useState(0);
@@ -25,33 +25,6 @@ function App() {
         <h3 style={{ color: `rgb(${r}, ${g}, ${b})` }}>Low Battery</h3>
       )
     }
-  }
-
-  const ChangeColor = ({ color }) => {
-    return (
-      <div>
-        <Button
-          className="btn m-1"
-          onClick={() => setColorCar('red')}
-          size="sm">
-          set to red{color}
-        </Button>
-
-        <Button
-          className="btn m-1"
-          onClick={() => setColorCar('blue')}
-          size="sm">
-          set to blue{color}
-        </Button>
-
-        <Button
-          className="btn m-1"
-          onClick={() => setColorCar('green')}
-          size="sm">
-          set to green{color}
-        </Button>
-      </div>
-    )
   }
 
   const Valorant = () => {
@@ -132,12 +105,19 @@ function App() {
             width: `${bar}%`
           }}>Progress Bar<span>{bar}%</span></div>
           <Done />
-
+        </div>
+        <div className="col py-3">
+        <CarComponent />
+        <CarComponent />
         </div>
         <div className="col pt-3">
-          <FaCar className={`car ${colorCar} `} /> The car is {colorCar}
-          <ChangeColor />
           <div class="row mt-4 bg-light p-2">
+            <Valorant />
+            <Valorant />
+            <Valorant />
+            <Valorant />
+            <Valorant />
+            <Valorant />
             <Valorant />
           </div>
         </div>
@@ -147,4 +127,3 @@ function App() {
 }
 
 export default App;
-
